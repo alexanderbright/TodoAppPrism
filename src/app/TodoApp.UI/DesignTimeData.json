@@ -1,0 +1,33 @@
+﻿{
+  "TodoListPage.xaml": {
+    "Items": [
+      {
+        "Name": "Name 1 - not done",
+        "Notes": "Notes of name 1",
+        "Done": false
+      },
+      {
+        "Name": "Name 2 - done",
+        "Notes": "Notes of name 1",
+        "Done": true
+      },
+      {
+        "Name": "Name 3 - done",
+        "Notes": "Notes of name 1",
+        "Done": true
+      },
+      {
+        "Name": "Name 4 - not done",
+        "Notes": "Notes of name 1",
+        "Done": false
+      }
+    ] 
+  },
+  "EditItemPage.xaml": {
+    "Item": {
+      "Name": "Test name",
+      "Notes": "Test notes",
+      "Done": false
+    }
+  }
+}

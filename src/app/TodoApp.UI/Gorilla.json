@@ -1,0 +1,12 @@
+﻿{
+  "knownAssemblies": [
+    { "name": "ForumApp.UI" },
+    { "name": "ForumApp.BL" },
+    { "name": "ForumApp.Data" },
+    { "name": "Xamarin.Forms.Core" },
+    { "name": "Xamarin.Forms.Xaml" },
+    { "name": "Prism" },
+    { "name": "Prism.Forms" },
+    { "name": "Prism.Unity.Forms" }
+  ]
+}

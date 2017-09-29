@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<unity:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:unity="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+             xmlns:triggers="clr-namespace:TodoApp.UI.Triggers;assembly=TodoApp.UI"
+             x:Class="TodoApp.UI.App">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Constants -->
+
+            <Color x:Key="primaryGreen">#91CA47</Color>
+            <Color x:Key="primaryDarkGreen">#6FA22E</Color>
+
+            <!-- Page style -->
+            <Style TargetType="NavigationPage" x:Key="navigationPageStyle">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource primaryGreen}"/>
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</unity:PrismApplication>

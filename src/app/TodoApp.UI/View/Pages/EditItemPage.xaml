@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoApp.UI.View.Pages.EditItemPage"
+             xmlns:components="clr-namespace:TodoApp.UI.Components;assembly=TodoApp.UI"
+             components:PageTracker.Track="True"
+             Title="{Binding Item.Name}"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:vms="clr-namespace:TodoApp.BL.ViewModel.Pages;assembly=TodoApp.BL"
+             d:DataContext="{d:DesignInstance vms:EditItemPageViewModel}">
+    
+    <ContentPage.Content>
+        <StackLayout Margin="20" VerticalOptions="StartAndExpand">
+            <Label Text="Name" />
+            <Entry Text="{Binding Item.Name}" />
+            <Label Text="Notes" />
+            <Entry Text="{Binding Item.Notes}" />
+            <Label Text="Done" />
+            <Switch IsToggled="{Binding Item.Done}" />
+            <Button Text="Save" Command="{Binding SaveCommand}" />
+            <Button Text="Cancel" Command="{Binding CancelCommand}" />
+            <Button Text="Speak" Command="{Binding SpeakCommand}" />
+            <Button Text="Set data"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

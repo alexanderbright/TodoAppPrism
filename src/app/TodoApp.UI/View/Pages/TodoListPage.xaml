@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoApp.UI.View.Pages.TodoListPage"
+             xmlns:components="clr-namespace:TodoApp.UI.Components;assembly=TodoApp.UI"
+             components:PageTracker.Track="True"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:converters="clr-namespace:TodoApp.UI.Converters;assembly=TodoApp.UI"
+             xmlns:triggers="clr-namespace:TodoApp.UI.Triggers;assembly=TodoApp.UI"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:vms="clr-namespace:TodoApp.BL.ViewModel.Pages;assembly=TodoApp.BL"
+             d:DataContext="{d:DesignInstance vms:TodoListPageViewModel}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem AutomationId="toolbar_add" Text="+" Command="{Binding AddItemCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource" >
+                    <On Platform="Android" Value="plus.png"></On>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ItemTappedEventArgsConverter x:Key="ItemTappedConverter"/>
+            <Style TargetType="ListView" x:Key="navigationListStyle">
+                <Setter Property="SeparatorVisibility" Value="None"/>
+                <Style.Triggers>
+                    <EventTrigger Event="ItemTapped">
+                        <triggers:ClearSelectionEventTrigger/>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ListView Margin="20" 
+                  ItemsSource="{Binding Items}"
+                  Style="{StaticResource navigationListStyle}">
+            <ListView.Behaviors>
+                <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                                  Command="{Binding EditItemCommand}" 
+                                                  EventArgsConverter="{StaticResource ItemTappedConverter}"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                            <Image Source="check.png" HorizontalOptions="End" IsVisible="{Binding Done}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
